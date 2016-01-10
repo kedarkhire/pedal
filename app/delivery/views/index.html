@@ -1,0 +1,24 @@
+<html>
+<head><div ng-controller="IndexController">
+    <div id="header2"></div>
+</head>
+    
+<div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
+<div ng-hide="showSpinner">
+ <ul class="list" ng-hide="deliverys.length == 0">   
+
+<super-navigate data-params-id="{{ delivery.id }}" ng-repeat="delivery in deliverys | filter: {name: searchText}| orderBy:'name'">            
+<div class="list">
+    <a class="item item-thumbnail-left" href="tel:{{ delivery['number']}}">
+     <img ng-src="{{delivery.image.url}}">
+      <h2 span ng-bind="delivery['name']"></span></h2>
+      <p span ng-bind="delivery['hours']"></span></p>
+      <p span ng-bind="delivery['number']"></span></p>
+    </a> 
+    
+</div>
+</super-navigate>      
+</ul>
+</div>
+</div>
+</html>

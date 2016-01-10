@@ -1,0 +1,60 @@
+/* General */
+.supersonic-navbar-mock {
+  background-color: #00B5FF !important;
+  text-align: center;
+  font-weight: 600;
+  font-family:sans-serif;
+}
+
+body {
+    font-family:sans-serif;
+    background-color: #f2f2f2;
+}
+
+/* Home Page */
+
+
+#header {
+    background: url(/images/oxford2.png) no-repeat center;
+    background-size: 100% 100%;
+    padding: 25%;
+}
+
+#day {
+    font-size: 18px;
+    text-align: center;
+    color: #09091A;
+    text-transform: uppercase;
+}
+
+#news {
+    font-size: 15px;
+    text-align: center;
+    color: #09091A;
+}
+
+#about {
+    text-align: center;
+}
+
+/* About */
+
+#twitter {
+    text-align: center;
+}
+
+/* Search */
+
+#header1 {
+    background: url(/images/search.png) no-repeat center;
+    background-size: 100% 100%;
+    padding: 25%;
+}
+
+/* Delivery */
+
+#header2 {
+    background: url(/images/delivery.png) no-repeat center;
+    background-size: 100% 100%;
+    padding: 25%;
+}

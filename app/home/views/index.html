@@ -1,0 +1,48 @@
+<div ng-controller="IndexController">
+
+  <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
+  <div ng-hide="showSpinner">
+
+<super-navigate location="home#show" data-params-id="{{ home.id }}" ng-repeat="home in homes">
+        <div id="header">
+            <div id="city">
+                <a><strong>Oxford, OH</strong></a>
+            </div>
+        </div> 
+</super-navigate>      
+       <body>
+<br>          
+<div id="day">
+    <strong>
+      <span>{{today | date:'EEEE'}}</span><br>
+      <span>{{today | date:'longDate'}}</span>        
+    </strong>
+</div><br>    
+
+<hr>
+<div id='happening'>
+<div ng-repeat="updates in Home.updates">
+<p>Updates: {{updates}}</p>
+</div>           
+
+<div id="deals">
+    <div ng-repeat="picks in home.pickss">
+        <p>{{picks.deals}}</p>
+    </div>
+</div>
+</body>   
+          
+          
+          
+          
+      
+
+
+
+<super-modal-show location="home#new">
+<button class="button button-full button-positive">
+        About
+      </button>
+</super-modal-show>
+  </div>
+</div>

@@ -1,0 +1,132 @@
+<div ng-controller="ShowController">
+  <head>
+    <super-navbar>
+    <super-navbar-title ng-bind="oxford['name']"></super-navbar-title>
+  </super-navbar>
+  <div class="padding">
+    <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
+    <div ng-hide="showSpinner">
+
+   
+<!-- start Mixpanel --><script type="text/javascript">(function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
+mixpanel.init("7fc5046320f2cdd0448766810fdf3ebb");</script><!-- end Mixpanel -->               
+</head>        
+<body>
+
+<script>    
+mixpanel.track("Business View"); 
+</script> 
+    
+        <div class="list card">
+            
+            <a class="item item-icon-left" href="#">
+                <i class="icon super-location"></i>
+                <p><span ng-bind="oxford['address']"></span></p> 
+            </a>
+             
+            <a class="item item-icon-left" href="tel:{{ oxford['phone']}}">
+                <i class="icon super-android-call"></i>
+                <span ng-bind="oxford['phone']"></span>
+            </a>
+            <a class="item item-icon-left" href="#">
+                <i class="icon super-chatbox-working" href="#"></i>
+                <p><span ng-bind="oxford['comments']"></span></p>
+            </a>
+        </div>
+    
+      <div class="list list-inset">
+            <div class="item">
+                <a><strong>Everyday</strong>
+                <div ng-repeat="deals in oxford.deals.everyday.item">
+                <p><li>{{deals}}</li></p>
+                </div>
+            </div>
+        </div>
+    
+    <!-- show info for Monday -->
+        <div class="list list-inset">
+            <div class="item">
+                <a><strong>Monday</strong><div ng-repeat="hours in oxford.hours.monday">
+                    <p>{{hours}}</p>
+                </div></a>
+                <div ng-repeat="deals in oxford.deals.monday.item">
+                <p><li>{{deals}}</li></p>
+                </div>
+            </div>
+        </div>
+        
+   <!-- show info for Tuesday -->
+     <div class="list list-inset">
+            <div class="item">
+                <a><strong>Tuesday</strong><div ng-repeat="hours in oxford.hours.tuesday">
+                    <p>{{hours}}</p>
+                </div></a>
+                <div ng-repeat="deals in oxford.deals.tuesday.item">
+                <p><li>{{deals}}</li></p>
+                </div>
+            </div>
+        </div>
+        
+   <!-- show the deals for Wednesday --> 
+    <div class="list list-inset">
+            <div class="item">
+                <a><strong>Wednesday</strong><div ng-repeat="hours in oxford.hours.wednesday">
+                    <p>{{hours}}</p>
+                </div></a>
+                <div ng-repeat="deals in oxford.deals.wednesday.item">
+                <p><li>{{deals}}</li></p>
+                </div>
+            </div>
+        </div>
+        
+   <!-- show the deals for Thursday -->
+   <div class="list list-inset">
+            <div class="item">
+                <a><strong>Thursday</strong><div ng-repeat="hours in oxford.hours.thursday">
+                    <p>{{hours}}</p>
+                </div></a>
+                <div ng-repeat="deals in oxford.deals.thursday.item">
+                <p><li>{{deals}}</li></p>
+                </div>
+            </div>
+        </div> 
+   <!-- show the deals for Friday --> 
+  <div class="list list-inset">
+            <div class="item">
+                <a><strong>Friday</strong><div ng-repeat="hours in oxford.hours.friday">
+                    <p>{{hours}}</p>
+                </div></a>
+                <div ng-repeat="deals in oxford.deals.friday.item">
+                <p><li>{{deals}}</li></p>
+                </div>
+            </div>
+        </div>
+
+   <!-- show the deals for Saturday -->
+    <div class="list list-inset">
+            <div class="item">
+                <a><strong>Saturday</strong><div ng-repeat="hours in oxford.hours.saturday">
+                    <p>{{hours}}</p>
+                </div></a>
+                <div ng-repeat="deals in oxford.deals.saturday.item">
+                <p><li>{{deals}}</li></p>
+                </div>
+            </div>
+        </div>
+   <!-- show the deals for Sunday --> 
+       <div class="list list-inset">
+            <div class="item">
+                <a><strong>Sunday</strong><div ng-repeat="hours in oxford.hours.sunday">
+                    <p>{{hours}}</p>
+                </div></a>
+                <div ng-repeat="deals in oxford.deals.sunday.item">
+                <p><li>{{deals}}</li></p>
+                </div>
+            </div>
+        </div>
+     </body>
+    </div>
+  </div>
+      
+</div>

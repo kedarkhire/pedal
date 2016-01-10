@@ -1,0 +1,52 @@
+<div ng-controller="ShowController">
+  <super-navbar>
+    <super-navbar-title>
+      Show
+    </super-navbar-title>
+  </super-navbar>
+
+  <div class="padding">
+    <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
+    <div ng-hide="showSpinner">
+      <h2 ng-bind="home['updated_at']"></h2>
+      
+      
+      
+       <p>created_at: <span ng-bind="home['created_at']"></span></p> 
+      
+       <p>__loc: <span ng-bind="home['__loc']"></span></p> 
+      
+       <p>updates: <span ng-bind="home['updates']"></span></p> 
+      
+       <p>picks: <span ng-bind="home['picks']"></span></p> 
+      
+       <p>tags: <span ng-bind="home['tags']"></span></p> 
+      
+       <p>updated_by: <span ng-bind="home['updated_by']"></span></p> 
+      
+       <p>created_by: <span ng-bind="home['created_by']"></span></p> 
+      
+       <p>app_user_object_uid: <span ng-bind="home['app_user_object_uid']"></span></p> 
+      
+       <p>published: <span ng-bind="home['published']"></span></p> 
+      
+       <p>uid: <span ng-bind="home['uid']"></span></p> 
+      
+       <p>_version: <span ng-bind="home['_version']"></span></p> 
+      
+       <p>ACL: <span ng-bind="home['ACL']"></span></p> 
+      
+
+
+      <super-modal-show location="home#edit?id={{ home.id }}">
+        <button class="button button-block button-positive">
+          Edit
+        </button>
+      </super-modal-show>
+
+      <button ng-click="remove(home.id)" class="button button-block button-negative">
+        Remove
+      </button>
+    </div>
+  </div>
+</div>

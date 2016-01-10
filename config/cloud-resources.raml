@@ -1,0 +1,293 @@
+#%RAML 0.8
+title: Steroids Data
+mediaType: application/json
+baseUri: https://rest-api.appgyver.com/v1
+
+traits:
+    - securedBySteroidsApiKey:
+        headers:
+          steroidsApiKey:
+            type: string
+            example: exampleapikey
+            default: 04a7154aabf2efb4b271186d8a2840baf75de1d875fe72f75934d40eabbc4601
+          steroidsAppId:
+            type: integer
+            example: 1234
+            default: 53302
+  
+schemas:
+  - oxford_collection: '{"$schema":"http://json-schema.org/schema","title":"oxford collection","type":"object","properties":{"objects":{"type":"array","items":{"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical oxford representation","properties":{"updated_at":{"type":"string"},"created_at":{"type":"string"},"name":{"type":"string"},"address":{"type":"string"},"hours":{"type":"object"},"deals":{"type":"object"},"__loc":{"type":"array"},"ACL":{"type":"object"},"tags":{"type":"array"},"updated_by":{"type":"string"},"created_by":{"type":"string"},"app_user_object_uid":{"type":"string"},"published":{"type":"boolean"},"uid":{"type":"string"},"comments":{"type":"array"},"phone":{"type":"string"},"cover":{"type":"array"},"_version":{"type":"integer"}},"required":[]}}}}'
+  - oxford_member: '{"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical oxford representation","properties":{"object":{"type":"object","properties":{"updated_at":{"type":"string"},"created_at":{"type":"string"},"name":{"type":"string"},"address":{"type":"string"},"hours":{"type":"object"},"deals":{"type":"object"},"__loc":{"type":"array"},"ACL":{"type":"object"},"tags":{"type":"array"},"updated_by":{"type":"string"},"created_by":{"type":"string"},"app_user_object_uid":{"type":"string"},"published":{"type":"boolean"},"uid":{"type":"string"},"comments":{"type":"array"},"phone":{"type":"string"},"cover":{"type":"array"},"_version":{"type":"integer"}},"required":[]}}}'
+  - newsfeed_collection: '{"$schema":"http://json-schema.org/schema","title":"newsfeed collection","type":"object","properties":{"objects":{"type":"array","items":{"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical newsfeed representation","properties":{"updated_at":{"type":"string"},"created_at":{"type":"string"},"day":{"type":"array"},"news":{"type":"array"},"deals":{"type":"array"},"ACL":{"type":"object"},"tags":{"type":"array"},"updated_by":{"type":"string"},"created_by":{"type":"string"},"app_user_object_uid":{"type":"string"},"published":{"type":"boolean"},"uid":{"type":"string"},"__loc":{"type":"string"},"_version":{"type":"integer"}},"required":[]}}}}'
+  - newsfeed_member: '{"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical newsfeed representation","properties":{"object":{"type":"object","properties":{"updated_at":{"type":"string"},"created_at":{"type":"string"},"day":{"type":"array"},"news":{"type":"array"},"deals":{"type":"array"},"ACL":{"type":"object"},"tags":{"type":"array"},"updated_by":{"type":"string"},"created_by":{"type":"string"},"app_user_object_uid":{"type":"string"},"published":{"type":"boolean"},"uid":{"type":"string"},"__loc":{"type":"string"},"_version":{"type":"integer"}},"required":[]}}}'
+  - delivery_collection: '{"$schema":"http://json-schema.org/schema","title":"delivery collection","type":"object","properties":{"objects":{"type":"array","items":{"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical delivery representation","properties":{"updated_at":{"type":"string"},"created_at":{"type":"string"},"__loc":{"type":"string"},"name":{"type":"string"},"number":{"type":"string"},"hours":{"type":"array"},"menu":{"type":"object"},"image":{"type":"object"},"tags":{"type":"array"},"updated_by":{"type":"string"},"created_by":{"type":"string"},"app_user_object_uid":{"type":"string"},"published":{"type":"boolean"},"uid":{"type":"string"},"_version":{"type":"integer"},"ACL":{"type":"object"}},"required":[]}}}}'
+  - delivery_member: '{"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical delivery representation","properties":{"object":{"type":"object","properties":{"updated_at":{"type":"string"},"created_at":{"type":"string"},"__loc":{"type":"string"},"name":{"type":"string"},"number":{"type":"string"},"hours":{"type":"array"},"menu":{"type":"object"},"image":{"type":"object"},"tags":{"type":"array"},"updated_by":{"type":"string"},"created_by":{"type":"string"},"app_user_object_uid":{"type":"string"},"published":{"type":"boolean"},"uid":{"type":"string"},"_version":{"type":"integer"},"ACL":{"type":"object"}},"required":[]}}}'
+  - Home_collection: '{"$schema":"http://json-schema.org/schema","title":"Home collection","type":"object","properties":{"objects":{"type":"array","items":{"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical Home representation","properties":{"updated_at":{"type":"string"},"created_at":{"type":"string"},"__loc":{"type":"string"},"updates":{"type":"array"},"picks":{"type":"array"},"tags":{"type":"array"},"updated_by":{"type":"string"},"created_by":{"type":"string"},"app_user_object_uid":{"type":"string"},"published":{"type":"boolean"},"uid":{"type":"string"},"_version":{"type":"integer"},"ACL":{"type":"object"}},"required":[]}}}}'
+  - Home_member: '{"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical Home representation","properties":{"object":{"type":"object","properties":{"updated_at":{"type":"string"},"created_at":{"type":"string"},"__loc":{"type":"string"},"updates":{"type":"array"},"picks":{"type":"array"},"tags":{"type":"array"},"updated_by":{"type":"string"},"created_by":{"type":"string"},"app_user_object_uid":{"type":"string"},"published":{"type":"boolean"},"uid":{"type":"string"},"_version":{"type":"integer"},"ACL":{"type":"object"}},"required":[]}}}'
+
+resourceTypes:
+  - dolan_db_collection:
+      usage: This resourceType should be used for any collection of items
+      is: [ securedBySteroidsApiKey ]
+      get:
+        description: |
+          {
+            "action": "collection"
+          }
+        responses:
+          200:
+            description: |
+              {
+                "rootKey": "objects"
+              }
+            body:
+              application/json:
+                schema: <<resourcePathName>>_collection # e.g cars
+      post:
+        description: |
+          {
+            "action": "create",
+            "rootKey": "object"
+          }
+        body:
+          application/json:
+            schema: <<resourcePathName>>_member
+        responses:
+          200:
+            description: |
+              {
+                "rootKey": "object"
+              }
+            body:
+              application/json:
+                schema: <<resourcePathName>>_member # e.g. car
+
+  - dolan_db_member:
+      usage: This resourceType should be used for any built.io item
+      is: [ securedBySteroidsApiKey ]
+      get:
+        description: |
+          {
+            "action": "find"
+          }
+        responses:
+          200:
+            description: |
+              {
+                "rootKey": "object"
+              }
+            body:
+              application/json:
+                schema: <<resourcePathName>>_member # e.g. car
+      put:
+        description: |
+          {
+            "action": "update",
+            "rootKey": "object"
+          }
+        body:
+          application/json:
+            schema: <<resourcePathName>>_member
+        responses:
+          200:
+            description: |
+              {
+                "rootKey": "object"
+              }
+            body:
+              application/json:
+                schema: <<resourcePathName>>_member
+      delete:
+        description: |
+          {
+            "action": "destroy"
+          }
+        responses:
+          200:
+
+  - built_io_collection:
+      usage: This resourceType should be used for any collection of items
+      is: [ securedBySteroidsApiKey ]
+      get:
+        description: |
+          {
+            "action": "collection"
+          }
+        responses:
+          200:
+            description: |
+              {
+                "rootKey": "objects"
+              }
+            body:
+              application/json:
+                schema: <<resourcePathName>>_collection # e.g cars
+      post:
+        description: |
+          {
+            "action": "create",
+            "rootKey": "object"
+          }
+        body:
+          application/json:
+            schema: <<resourcePathName>>_member
+        responses:
+          200:
+            description: |
+              {
+                "rootKey": "object"
+              }
+            body:
+              application/json:
+                schema: <<resourcePathName>>_member # e.g. car
+
+  - built_io_member:
+      usage: This resourceType should be used for any built.io item
+      is: [ securedBySteroidsApiKey ]
+      get:
+        description: |
+          {
+            "action": "find"
+          }
+        responses:
+          200:
+            description: |
+              {
+                "rootKey": "object"
+              }
+            body:
+              application/json:
+                schema: <<resourcePathName>>_member # e.g. car
+      put:
+        description: |
+          {
+            "action": "update",
+            "rootKey": "object"
+          }
+        body:
+          application/json:
+            schema: <<resourcePathName>>_member
+        responses:
+          200:
+            description: |
+              {
+                "rootKey": "object"
+              }
+            body:
+              application/json:
+                schema: <<resourcePathName>>_member
+      delete:
+        description: |
+          {
+            "action": "destroy"
+          }
+        responses:
+          200:
+
+  - parse_collection:
+      usage: This resourceType should be used for any collection of items
+      is: [ securedBySteroidsApiKey ]
+      get:
+        description: |
+          {
+            "action": "collection"
+          }
+        responses:
+          200:
+            description: |
+              {
+                "rootKey": "results"
+              }
+            body:
+              application/json:
+                schema: <<resourcePathName>>_collection # e.g cars
+      post:
+        description: |
+          {
+            "action": "create"
+          }
+        body:
+          application/json:
+            schema: <<resourcePathName>>_member
+        responses:
+          200:
+            body:
+              application/json:
+                schema: <<resourcePathName>>_member # e.g. car
+
+  - parse_member:
+      usage: This resourceType should be used for any parse item
+      is: [ securedBySteroidsApiKey ]
+      get:
+        description: |
+          {
+            "action": "find"
+          }
+        responses:
+          200:
+            body:
+              application/json:
+                schema: <<resourcePathName>>_member # e.g. car
+      put:
+        description: |
+          {
+            "action": "update"
+          }
+        body:
+          application/json:
+            schema: <<resourcePathName>>_member
+        responses:
+          200:
+            body:
+              application/json:
+                schema: <<resourcePathName>>_member
+      delete:
+        description: |
+          {
+            "action": "destroy"
+          }
+        responses:
+          200:
+
+
+/oxford:
+  description: |
+    {
+      "resourceName": "oxford",
+      "identifierKey": "uid"
+    }
+  type: built_io_collection
+  /{id}:
+    type: built_io_member
+
+/newsfeed:
+  description: |
+    {
+      "resourceName": "newsfeed",
+      "identifierKey": "uid"
+    }
+  type: built_io_collection
+  /{id}:
+    type: built_io_member
+
+/delivery:
+  description: |
+    {
+      "resourceName": "delivery",
+      "identifierKey": "uid"
+    }
+  type: built_io_collection
+  /{id}:
+    type: built_io_member
+
+/Home:
+  description: |
+    {
+      "resourceName": "Home",
+      "identifierKey": "uid"
+    }
+  type: built_io_collection
+  /{id}:
+    type: built_io_member
+
+

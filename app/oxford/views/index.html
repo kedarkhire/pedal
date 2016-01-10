@@ -1,0 +1,29 @@
+<html>
+<head>
+<div ng-controller="IndexController">
+<div id="header1"></div> 
+</head>
+<body>
+    
+
+    <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
+  <div ng-hide="showSpinner">
+      
+<div class="bar bar-header item-input-inset">
+  <label class="item-input-wrapper">
+    <i class="icon super-ios7-search placeholder-icon"></i>
+    <input type="search" placeholder="Search" ng-model="searchText">
+  </label>
+</div>    
+
+<super-navigate location="oxford#show" data-params-id="{{ oxford.id }}" ng-repeat="oxford in oxfords | filter: {name: searchText}| orderBy:'name'">
+    <li class="item item-icon-right">
+    <td>{{oxford.name}}</td>
+    <i class="icon super-ios7-arrow-right"></i>
+    </li>
+</super-navigate> 
+       
+    </div>
+</body> 
+</div>   
+</html>   

@@ -1,0 +1,72 @@
+/***********************************************************
+ * These styles apply for native components on Android.
+ * Read more about native styles at http://docs.appgyver.com
+ ***********************************************************/
+
+navigation-bar {
+  background-color: #6666FF;
+  color: #ffffff;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+navigation-bar title {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+navigation-bar button {
+  color: #ffffff;
+  font-weight: 300;
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+navigation-bar back-indicator {
+  background-image: url(default_back_icon.png);
+  background-size: 18;
+}
+
+navigation-bar back-button {
+  color: #ffffff;
+  font-weight: 300;
+}
+
+
+/**************************************
+ *  Tab Bar
+ *************************************/
+
+tab-bar {
+  background-color: #ffffff;
+  border-bottom: 1px #d8d8d8 solid;
+  border-top: 2px #09091A solid;
+}
+
+tab-bar tab-bar-item {
+  color: #09091A;
+  font-family: sans-serif;
+  font-size: 10px;    
+}
+
+tab-bar tab-bar-item:selected {
+  color: #09091A;
+}
+
+tab-bar tab-bar-item marker-top:selected {
+  background-color: #09091A;
+}
+
+ tab-bar-item#home {
+  background-image: url(icons/home.svg);
+}
+
+tab-bar-item#all {
+  background-image: url(icons/search.svg);
+}
+
+tab-bar-item#delivery{
+    background-image: url(icons/androidcar.svg);
+}
+
