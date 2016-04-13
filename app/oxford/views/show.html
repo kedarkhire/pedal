@@ -1,40 +1,40 @@
 <div ng-controller="ShowController">
-  <head>
-    <super-navbar>
-    <super-navbar-title ng-bind="oxford['name']"></super-navbar-title>
+  <super-navbar>
   </super-navbar>
+
   <div class="padding">
     <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
     <div ng-hide="showSpinner">
 
-   
-<!-- start Mixpanel --><script type="text/javascript">(function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
-for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
-mixpanel.init("7fc5046320f2cdd0448766810fdf3ebb");</script><!-- end Mixpanel -->               
-</head>        
-<body>
+<!--profile picture -->
+        
+    <img ng-src="{{oxford.image.url}}">    
+  
+<!-- gen info -->
+ <div class="list">
+     <div class="item item-divider">
+      <b><span ng-bind="oxford['name']"></span></b>
+     </div>
+     <a class="item item-icon-left">
+      <i class="icon super-location"></i>
+      <p><span ng-bind="oxford['address']"></span></p> 
+     </a>
+     <a class="item item-icon-left" href="tel:{{ oxford['phone']}}">
+      <i class="icon super-android-call"></i>
+      <p><span ng-bind="oxford['phone']"></span></p> 
+     </a>
+  </div> 
+     {{oxford.phone2}}
 
-<script>    
-mixpanel.track("Business View"); 
-</script> 
-    
-        <div class="list card">
-            
-            <a class="item item-icon-left" href="#">
-                <i class="icon super-location"></i>
-                <p><span ng-bind="oxford['address']"></span></p> 
-            </a>
-             
-            <a class="item item-icon-left" href="tel:{{ oxford['phone']}}">
-                <i class="icon super-android-call"></i>
-                <span ng-bind="oxford['phone']"></span>
-            </a>
-            <a class="item item-icon-left" href="#">
-                <i class="icon super-chatbox-working" href="#"></i>
-                <p><span ng-bind="oxford['comments']"></span></p>
-            </a>
-        </div>
-    
+    <!--<a onclick="supersonic.app.openURL('http://www.google.com')" href="">Menu</a>        
+        
+        
+    <!-- about -->
+  <div class="description">
+      <p><span ng-bind="oxford['comments']"></span></p>
+  </div> 
+        
+    <!-- show info for everyday -->    
       <div class="list list-inset">
             <div class="item">
                 <a><strong>Everyday</strong>
@@ -68,7 +68,7 @@ mixpanel.track("Business View");
             </div>
         </div>
         
-   <!-- show the deals for Wednesday --> 
+   <!-- show the deals for Wednesday -->
     <div class="list list-inset">
             <div class="item">
                 <a><strong>Wednesday</strong><div ng-repeat="hours in oxford.hours.wednesday">
@@ -91,7 +91,7 @@ mixpanel.track("Business View");
                 </div>
             </div>
         </div> 
-   <!-- show the deals for Friday --> 
+   <!-- show the deals for Friday  -->
   <div class="list list-inset">
             <div class="item">
                 <a><strong>Friday</strong><div ng-repeat="hours in oxford.hours.friday">
@@ -114,7 +114,7 @@ mixpanel.track("Business View");
                 </div>
             </div>
         </div>
-   <!-- show the deals for Sunday --> 
+   <!-- show the deals for Sunday -->
        <div class="list list-inset">
             <div class="item">
                 <a><strong>Sunday</strong><div ng-repeat="hours in oxford.hours.sunday">
@@ -125,8 +125,7 @@ mixpanel.track("Business View");
                 </div>
             </div>
         </div>
-     </body>
+        
     </div>
   </div>
-      
 </div>

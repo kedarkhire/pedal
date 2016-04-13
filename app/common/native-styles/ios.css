@@ -3,8 +3,14 @@
  * Read more about native styles at http://docs.appgyver.com
  ***********************************************************/
 
+@font-face {
+    font-family: "SF-UI-Display-Regular";
+    font-weight: normal;
+    src: url("../fonts/SF-UI-Display-Regular.otf");
+}
+
 navigation-bar {
-  background-color: #09091A;
+  background-color: #EA5455;
   color: #ffffff;
 }
 
@@ -21,17 +27,21 @@ navigation-bar button, navigation-bar back-bar-button {
 
 tab-bar {
   background-color: #09091A;
-  border-bottom: 1px #3F3FFC solid;
+  color: white; 
 }
 
 tab-bar tab-bar-item {
-  color: #A5A9AC;
-  font-family: sans-serif;
-  font-size: 10px;
+  color: #6c6c6c;
+  font-family:sans-serif;
+  font-size: 10px;    
 }
 
 tab-bar tab-bar-item:selected {
   color: #ffffff;
+}
+
+tab-bar tab-bar-icon:selected {
+    color:#ffffff;
 }
 
 tab-bar-item#home {

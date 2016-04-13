@@ -11,14 +11,14 @@ module.exports =
   #     "Access-Control-Allow-Headers": "Content-Type, X-Requested-With, steroidsAppId, steroidsApiKey"
 
   webView:
-    viewsIgnoreStatusBar: true
+    viewsIgnoreStatusBar: false
     enableDoubleTapToFocus: false
-    disableOverscroll: true
+    disableOverscroll: false
     enableViewportScale: false
     enablePopGestureRecognition: true
     allowInlineMediaPlayback: true
 
   # Applies on iOS only
   statusBar:
-    enabled: false
-    style: "light"
+    enabled: true
+    style: "dark"

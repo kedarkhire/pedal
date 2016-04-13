@@ -1,14 +1,13 @@
 /* General */
+
 .supersonic-navbar-mock {
   background-color: #00B5FF !important;
   text-align: center;
   font-weight: 600;
-  font-family:sans-serif;
 }
 
 body {
-    font-family:sans-serif;
-    background-color: #f2f2f2;
+    background-color: #f7f9fb;
 }
 
 /* Home Page */
@@ -27,8 +26,18 @@ body {
     text-transform: uppercase;
 }
 
+.post {
+  overflow: auto;
+  margin: 10px 10px 10px 10px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);      
+  background-color: #fff; 
+  padding: 10px 0px 5px 10px;
+  color: #454545;
+}
+
 #news {
-    font-size: 15px;
+    font-size: 16px;
     text-align: center;
     color: #09091A;
 }
@@ -51,6 +60,16 @@ body {
     padding: 25%;
 }
 
+.description {
+  overflow: auto;
+  margin: 10px 0px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);      
+  background-color: #2D4059; 
+  padding: 10px 0px 0px 10px;
+  color: #fff;
+}
+
 /* Delivery */
 
 #header2 {
@@ -58,3 +77,5 @@ body {
     background-size: 100% 100%;
     padding: 25%;
 }
+
+

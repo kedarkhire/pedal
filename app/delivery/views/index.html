@@ -1,7 +1,6 @@
 <html>
-<head><div ng-controller="IndexController">
+<div ng-controller="IndexController">
     <div id="header2"></div>
-</head>
     
 <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
 <div ng-hide="showSpinner">
@@ -11,9 +10,9 @@
 <div class="list">
     <a class="item item-thumbnail-left" href="tel:{{ delivery['number']}}">
      <img ng-src="{{delivery.image.url}}">
-      <h2 span ng-bind="delivery['name']"></span></h2>
-      <p span ng-bind="delivery['hours']"></span></p>
-      <p span ng-bind="delivery['number']"></span></p>
+      <h2><span ng-bind="delivery['name']"></span></h2> 
+      <p><span ng-bind="delivery['hours']"></span></p>
+      <p><span ng-bind="delivery['number']"></span></p>
     </a> 
     
 </div>

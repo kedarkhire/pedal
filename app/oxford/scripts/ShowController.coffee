@@ -18,4 +18,8 @@ angular
       $scope.dataId = values.id
       _refreshViewData()
 
+    $scope.remove = (id) ->
+      $scope.showSpinner = true
+      $scope.oxford.delete().then ->
+        supersonic.ui.layers.pop()
   )

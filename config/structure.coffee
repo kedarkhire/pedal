@@ -8,7 +8,7 @@ module.exports =
       location: "newsfeed#index" # Supersonic module#view type navigation
     }
     {
-       title: "Search"
+       title: "Find"
        id: "all"
        location: "oxford#index"
     }

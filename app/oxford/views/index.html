@@ -1,11 +1,7 @@
-<html>
-<head>
 <div ng-controller="IndexController">
 <div id="header1"></div> 
 </head>
 <body>
-    
-
     <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
   <div ng-hide="showSpinner">
       
@@ -18,7 +14,7 @@
 
 <super-navigate location="oxford#show" data-params-id="{{ oxford.id }}" ng-repeat="oxford in oxfords | filter: {name: searchText}| orderBy:'name'">
     <li class="item item-icon-right">
-    <td>{{oxford.name}}</td>
+    <td><span ng-bind="oxford['name']"></span></td>
     <i class="icon super-ios7-arrow-right"></i>
     </li>
 </super-navigate> 
