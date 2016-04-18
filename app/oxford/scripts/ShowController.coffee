@@ -4,6 +4,9 @@ angular
     $scope.oxford = null
     $scope.showSpinner = true
     $scope.dataId = undefined
+    $scope.openMenu = `function(oxfordMenu) {
+        supersonic.app.openURL(oxfordMenu);
+        };`
 
     _refreshViewData = ->
       Oxford.find($scope.dataId).then (oxford) ->

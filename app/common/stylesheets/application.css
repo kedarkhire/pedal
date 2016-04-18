@@ -52,12 +52,18 @@ body {
     text-align: center;
 }
 
-/* Search */
+/* Find */
 
 #header1 {
     background: url(/images/search.png) no-repeat center;
     background-size: 100% 100%;
     padding: 25%;
+}
+
+.avi {
+    height: 50px;
+    width: 50px;
+    align-content: center;
 }
 
 .description {
@@ -69,6 +75,7 @@ body {
   padding: 10px 0px 0px 10px;
   color: #fff;
 }
+
 
 /* Delivery */
 

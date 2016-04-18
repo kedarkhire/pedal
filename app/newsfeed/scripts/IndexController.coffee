@@ -4,7 +4,7 @@ angular
     $scope.newsfeeds = null
     $scope.showSpinner = true
     $scope.today = new Date();
-    
+
     Newsfeed.all().whenChanged (newsfeeds) ->
       $scope.$apply ->
         $scope.newsfeeds = newsfeeds
